@@ -17,24 +17,23 @@ export class App extends Component {
   }
 
   fetchAPI = API => {
-    axios.get(API)
-    .then(res => res.data)
-    .then(res => {
-      if (res.next) {
-        // console.log(res.results)
-        this.setState({
-          data: this.state.data.concat(res.results)
-        })
-        this.fetchAPI(res.next)
-      } else {
-        this.setState({
-          data: this.state.data.concat(res.results)
-        })
-      }
-      
-     } 
-    )
-  }
+    axios
+      .get(API)
+      .then(res => res.data)
+      .then(res => {
+        if (res.next) {
+          // console.log(res.results)
+          this.setState({
+            data: this.state.data.concat(res.results)
+          });
+          this.fetchAPI(res.next);
+        } else {
+          this.setState({
+            data: this.state.data.concat(res.results)
+          });
+        }
+      });
+  };
   componentDidMount = () => {
     this.fetchAPI(starwarsAPI + "people/");
   };
