@@ -12,12 +12,13 @@ export class SearchBar extends Component {
     return (
       <div>
         <h1>Search Here</h1>
-        <input onChange={this.props.handleChange} name="searchQuery" />
+        <input onChange={this.props.handleChange} name="searchQuery" /> Searching for: {query}
         <p>
           {resultArray.map(element => (
             <p>{element}</p>
           ))}
         </p>
+        <p>{this.props.data.name}</p>
       </div>
     );
   }
