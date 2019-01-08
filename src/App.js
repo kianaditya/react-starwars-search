@@ -9,7 +9,7 @@ export class App extends Component {
     super();
     this.state = {
       searchQuery: "",
-      data: {},
+      data: [],
       character: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -21,12 +21,14 @@ export class App extends Component {
     .then(res => res.data)
     .then(res => {
       if (res.next) {
-        console.log(res.results)
+        // console.log(res.results)
+        this.setState({
+          data: this.state.data.concat(res.results)
+        })
         this.fetchAPI(res.next)
       } else {
-        console.log(res.results)
         this.setState({
-          data: res.results
+          data: this.state.data.concat(res.results)
         })
       }
       
