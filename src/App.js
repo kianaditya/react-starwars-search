@@ -15,11 +15,10 @@ export class App extends Component {
   
   componentDidMount = () => {
     
-      axios.get(starwarsAPI +'people/1/')
+      axios.get(starwarsAPI +'people/')
       .then(res => this.setState({
-      data: res.data
-    })) 
-    
+      data: res.data.results
+    }))
   }
   
   handleChange(event) {

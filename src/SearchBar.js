@@ -5,20 +5,23 @@ export class SearchBar extends Component {
 
   render() {
     let query = this.props.searchQuery;
-    const array = ["a", "aa", "b", "bb", "ab", "ba"];
-    const resultArray = array.filter(
-      el => el.toLowerCase().indexOf(query.toLowerCase()) > -1
-    );
+    let data = this.props.data;
+    let array, resultArray =[]
+   if(data.length > 0)  {
+    array =  data.map (character => character.name);
+    resultArray = array.filter(
+     el => el.toLowerCase().indexOf(query.toLowerCase()) > -1
+   )
+   } 
     return (
       <div>
         <h1>Search Here</h1>
         <input onChange={this.props.handleChange} name="searchQuery" /> Searching for: {query}
         <p>
-          {resultArray.map(element => (
+          {resultArray.length > 0 ? resultArray.map(element => (
             <p>{element}</p>
-          ))}
+          )) : false}
         </p>
-        <p>{this.props.data.name}</p>
       </div>
     );
   }
