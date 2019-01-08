@@ -16,12 +16,16 @@ export class App extends Component {
     this.handleCharacter = this.handleCharacter.bind(this);
   }
   
-  componentDidMount = () => {
-    
-      axios.get(starwarsAPI +'people/')
+    fetchAPI = (API) => {
+      axios.get(API)
       .then(res => this.setState({
       data: res.data.results
     }))
+    }
+  componentDidMount = () => {
+    
+    this.fetchAPI(starwarsAPI + 'people/')
+      
   }
   
   handleChange(event) {
@@ -33,9 +37,7 @@ export class App extends Component {
   handleCharacter(event){
     const target =event.target;
     let selectedCharacter = target.getAttribute("value");
-    console.log(this.state.data)
     let characterInfo = this.state.data.filter(element => element.name === selectedCharacter)
-    console.log(characterInfo)
     this.setState({
       character: characterInfo[0]
     })
