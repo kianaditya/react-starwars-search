@@ -19,7 +19,9 @@ export class SearchBar extends Component {
         <input onChange={this.props.handleChange} name="searchQuery" /> Searching for: {query}
         <p>
           {resultArray.length > 0 ? resultArray.map(element => (
-            <p>{element}</p>
+            
+            <button name="character" value={element} onClick = {this.props.handleCharacter}>{element}</button>
+            
           )) : false}
         </p>
       </div>
