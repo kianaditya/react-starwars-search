@@ -22,7 +22,7 @@ export class SearchBar extends Component {
             
             <button name="character" value={element} onClick = {this.props.handleCharacter}>{element}</button>
             
-          )) : false}
+          )) : "Loading . . ."}
         </p>
       </div>
     );

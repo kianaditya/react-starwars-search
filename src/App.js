@@ -33,8 +33,11 @@ export class App extends Component {
   handleCharacter(event){
     const target =event.target;
     let selectedCharacter = target.getAttribute("value");
+    console.log(this.state.data)
+    let characterInfo = this.state.data.filter(element => element.name === selectedCharacter)
+    console.log(characterInfo)
     this.setState({
-      character: selectedCharacter
+      character: characterInfo[0]
     })
   }
   render() {
@@ -49,7 +52,6 @@ export class App extends Component {
         />
         <ShowCharacter
         character ={this.state.character}
-        data={this.state.data}
         />
       </div>
     );
