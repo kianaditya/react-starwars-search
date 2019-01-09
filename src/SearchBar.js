@@ -16,7 +16,7 @@ export class SearchBar extends Component {
     return (
       <div>
         <h1>Search Here</h1>
-        <input onChange={this.props.handleChange} name="searchQuery" /> Searching for: {query}
+        <input onChange={this.props.handleChange} name="searchQuery" className="searchQuery" /> Searching for: {query}
         <p>
           {resultArray.length > 0 ? resultArray.map(element => (
             
