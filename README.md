@@ -6,6 +6,8 @@ This is [React](https://reactjs.org/) based site
 * Provides a search box to find a character
 * Displays further information about selected character
 
+### Site is hosted [here](https://starwarsapisearch.netlify.com/)
+
 ## Fetching multi-page API page by page
 
 `https://swapi.co/api/people/` gives a multi page response, next page url is stored in 'next field'
